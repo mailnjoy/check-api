@@ -4,7 +4,7 @@
   <h3 align="center">API partenaire de <span style="color:#95C11F;">Check by Mailnjoy<span></h3>
 
   <p align="center">
-    Check by Mailnjoy est une solution de validation d'adresses email. <br/>L'API partenaire permet d'accèder à ces services de façon simple et automatisée.
+    Check by Mailnjoy est une solution de validation d'adresses email. <br/>L'API partenaire permet d'accèder aux services de Check, de façon simple, automatisée et sécurisée.
     <br />
     <a href="https://github.com/mailnjoy/check-api/wiki"><strong>Parcourir la documentation</strong></a>
   </p>
@@ -16,7 +16,7 @@
   * [Qu'est-ce que Mailnjoy]()
   * [Devenir un bêta-testeur]()
 * [QuickStart](#quickstart)
-  * [Prérequis](prérequis)
+  * [Prérequis](#prerequis)
   * [Validation unitaire](#validation-unitaire)
   * [Validation de masse](#validation-en-masse)
 * [Aller plus loin](#aller-plus-loin)
@@ -31,7 +31,7 @@
 
 ## QuickStart
 
-Suivez les étapes adaptée à votre cas d'usage (validation d'un seul mail / de nombreux mails). Dans tous les cas, vous devrez commencez par satisfaire les prérequis.
+Suivez les étapes adaptées à votre cas d'usage (validation d'un seul mail / de nombreux mails). Dans tous les cas, vous devrez commencer par satisfaire les prérequis.
 
 ### Prérequis
 
@@ -53,10 +53,11 @@ Indisponible pour le moment ([consulter la roadmap de l'API](https://trello.com/
 
 
 ## Aller plus loin
+La description technique de l'API est disponible sur le [SwaggerHub](https://app.swaggerhub.com/apis-docs/mailnjoy/check-by_mailn_joy_api/1.0.0).
 
 Nous proposons un certain nombre de service afin de faciliter l'intégration de notre API à vos services: SDK, serveur de développement, ... 
 
-Afin d'obtenir plus de détails sur ces outils, consulter des exemples d'intégrations ou explorer plus avant les possibilités de l'API, nous vous invitons à consulter la [documentation compléte](https://github.com/mailnjoy/check-api/wiki) et à vous rendre sur le [site dédié au developpeurs de Mailnjoy](https://developer.mailnjoy.com).
+Afin d'obtenir plus de détails sur ces outils, consulter des exemples d'intégrations ou explorer plus avant les possibilités de l'API, nous vous invitons à consulter la [documentation complète](https://github.com/mailnjoy/check-api/wiki) et à vous rendre sur le [site dédié aux developpeurs de Mailnjoy](https://developer.mailnjoy.com).
 
 ## Roadmap
 La roadmap de cette API est disponible sur [Trello](https://trello.com/b/LUHqg3Bm).
@@ -67,10 +68,10 @@ Vous avez un besoin, une idée pour améliorer notre API? Vous pouvez envoyer vo
 
 ## Contact
 
-Pour toute question technique liée à l'API, la documentation ou l'intégration des services Mailnjoy, vous pouvez nous contacter par mail via l'adresse dédiée [`contact-developer@mailnjoy.com`](mailto:contact-developer@mailnjoy.com) ou en passant par [l'onglet contact](https://developer.mailnjoy.com/page-contact) du site développeur.
+Pour toute question technique liée à l'API, la documentation ou l'intégration des services Mailnjoy, vous pouvez nous contacter par mail via l'adresse [`contact-developer@mailnjoy.com`](mailto:contact-developer@mailnjoy.com) ou en passant par [l'onglet contact](https://developer.mailnjoy.com/page-contact) du site développeur ([developer.mailnjoy.com](https://developer.mailnjoy.com)).
 
-Si vous souhaitez nous contacter pour une question sur les services Mailnjoy ou que vous souhaitez devenir bêta-testeur, vous pouvez nous joindre via l'adresse de contact standard [`contact@mailnjoy.com`](mailto:contact-developer@mailnjoy.com) ou en passant par l'onglet [`contact`](https://check.mailnjoy.com/page-contact) du site de Check, si vous y avez accés.
+Si vous voulez nous contacter pour une question sur les services Mailnjoy ou que vous souhaitez devenir bêta-testeur, vous pouvez nous joindre via l'adresse de contact standard [`contact@mailnjoy.com`](mailto:contact-developer@mailnjoy.com) ou en passant par l'onglet [`contact`](https://check.mailnjoy.com/page-contact) du site de Check, si vous y avez accès.
 
 ## Licence
 
-La documentation de l'API et les SDK sont distribués sous la [licence MIT](https://mit-license.org). Référez-vous au fichier `LICENSE` pour plus d'informations.
+Les documentations de l'API et des SDK sont distribuées sous la [licence MIT](https://mit-license.org). Référez-vous au fichier `LICENSE` pour plus d'informations.
