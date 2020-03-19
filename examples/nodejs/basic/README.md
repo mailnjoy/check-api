@@ -5,7 +5,8 @@ Le fichier `basic.js` est un exemple extrêmement simple d'appel à l'API. Il ne
 
 ## Lancement
 Renseigner les variables `mailnjoyId` et  `mailnjoySecret` dans le fichier `basic.js`.
-A la racine, installer le projet
+
+A la racine du dossier (`check-api/examples/nodejs/basic`), lancer l'installation le projet
 ```bash
 npm install
 ```
