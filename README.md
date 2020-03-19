@@ -1,3 +1,4 @@
+
 <p align="center">
   <img src="https://raw.githubusercontent.com/mailnjoy/api/master/public/images/mailnjoy_logo.png" alt="Logo" width="280" height="200">
 
@@ -44,8 +45,36 @@ Une fois authentifié, il faut se rendre dans l'onglet [`Comptes API`](https://d
 TODO: suite de la procédure, une fois l'onglet disponible
 
 ### Validation unitaire
- 
-TODO: une fois l'API disponible
+Tous les exemples sont disponibles dans le dossier [`examples`](https://github.com/mailnjoy/check-api/tree/master/examples)
+
+####  Node.js
+Définissez vos credentials et l'url de l'API de validation unitaire
+```javascript
+const mailnjoyId = "myId"
+const mailnjoySecret = "mySecret"
+const mailnjoyUnitaryPath = "https://api.mailnjoy.com/v1/unitary"
+```
+On peut ensuite effectuer l'appel (ici en utilisant le client http [axios](https://github.com/axios/axios))
+```javascript
+axios.post(
+  mailnjoyUnitaryPath + "?type=simple", // on fait ici une validation simple
+  "example.address@somedomain.com", // l'adresse email que vous souhaitez valider
+  {
+    "headers": { // on précise dans les headers les credentials et le type de la payload
+      "mailnjoy-id": mailnjoyId,
+      "mailnjoy-secret": mailnjoySecret ,
+      "Content-Type": "text/plain"
+    }
+  }
+).then(result => {
+  console.log(result.data)
+}).catch(error => {
+  console.log(error)
+})
+```
+L'exemple complet est disponible [ici](https://github.com/mailnjoy/check-api/tree/master/examples/nodejs/basic/)
+ #### Java
+
 
 ### Validation en masse
 
