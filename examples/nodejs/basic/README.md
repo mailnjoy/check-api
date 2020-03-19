@@ -4,6 +4,7 @@
 Le fichier `basic.js` est un exemple extrêmement simple d'appel à l'API. Il ne fait aucun traitement à partir du résultat mais permet d'illustrer le fonctionnement du endpoint de validation unitaire
 
 ## Lancement
+Renseigner les variables `mailnjoyId` et  `mailnjoySecret` dans le fichier `basic.js`.
 A la racine, installer le projet
 ```bash
 npm install
