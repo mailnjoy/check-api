@@ -236,6 +236,11 @@ components:
           readOnly: true
       description: todo
     inline_response_200:
+      discriminator:
+        propertyName: validationType
+        mapping:
+          SIMPLE: '#/components/schemas/ValidationSimple'
+          DEEP: '#/components/schemas/ValidationDeep'
       oneOf:
       - $ref: '#/components/schemas/ValidationSimple'
       - $ref: '#/components/schemas/ValidationDeep'
