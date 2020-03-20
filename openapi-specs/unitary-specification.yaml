@@ -28,7 +28,7 @@ paths:
       tags:
       - unitary
       description: Valide une unique adresse mail. L'appel prend quelques secondes
-      operationId: validOne
+      operationId: validateOne
       parameters:
       - name: type
         in: query
@@ -42,7 +42,7 @@ paths:
       requestBody:
         description: Le mail à valider
         content:
-          application/json:
+          text/plain:
             schema:
               $ref: '#/components/schemas/Email'
       responses:
@@ -117,8 +117,8 @@ components:
       type: string
       description: todo
       enum:
-      - SIMPLE
-      - DEEP
+      - simple
+      - deep
     Status:
       type: string
       description: todo
