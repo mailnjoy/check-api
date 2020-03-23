@@ -3,6 +3,9 @@
 # NodeJs -  Exemple basique
 Le fichier `basic.js` est un exemple extrêmement simple d'appel à l'API. Il ne fait aucun traitement à partir du résultat mais permet d'illustrer le fonctionnement du endpoint de validation unitaire
 
+## Prérequis
+Node.js doit être installé: [Télecharger Node](https://nodejs.org/en/download/)
+
 ## Lancement
 Renseigner les variables `mailnjoyId` et  `mailnjoySecret` dans le fichier `basic.js`.
 
@@ -17,5 +20,5 @@ npm start
 Comme précisé, le résultat de l'appel API est disponible par défaut sur `http://127.0.0.1:8080`.
 
 ## Explications
-L'appel API est ici statique, en mode `simple` et sur une adresse email statique.
+L'appel API est ici statique, en mode `simple` et sur une adresse email fixe.
 Lors de l'appel, il faut bien préciser les headers d'authentification `mailnjoy-id` et `mailnjoy-secret`, sans oublier de renseigner le `Content-Type`.
