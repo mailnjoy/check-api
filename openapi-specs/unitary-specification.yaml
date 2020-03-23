@@ -28,7 +28,7 @@ paths:
       tags:
       - unitary
       description: Valide une unique adresse mail. L'appel prend quelques secondes
-      operationId: validOne
+      operationId: validateOne
       parameters:
       - name: type
         in: query
@@ -42,7 +42,7 @@ paths:
       requestBody:
         description: Le mail à valider
         content:
-          application/json:
+          text/plain:
             schema:
               $ref: '#/components/schemas/Email'
       responses:
@@ -51,7 +51,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/inline_response_200'
+                $ref: '#/components/schemas/ValidationResponse'
         "400":
           description: Le paramétre n'est pas un mail valide ou le type spécifié est
             incorrect
@@ -67,6 +67,16 @@ components:
       type: string
       description: Une adresse email classique
       example: john.doe@company.com
+    ValidationResponse:
+      description: Le résultat d'une validation unitaire
+      discriminator:
+        propertyName: validationType
+        mapping:
+          SIMPLE: '#/components/schemas/ValidationSimple'
+          DEEP: '#/components/schemas/ValidationDeep'
+      oneOf:
+      - $ref: '#/components/schemas/ValidationSimple'
+      - $ref: '#/components/schemas/ValidationDeep'
     ValidationSimple:
       type: object
       properties:
@@ -117,8 +127,8 @@ components:
       type: string
       description: todo
       enum:
-      - SIMPLE
-      - DEEP
+      - simple
+      - deep
     Status:
       type: string
       description: todo
@@ -235,10 +245,6 @@ components:
             (false)
           readOnly: true
       description: todo
-    inline_response_200:
-      oneOf:
-      - $ref: '#/components/schemas/ValidationSimple'
-      - $ref: '#/components/schemas/ValidationDeep'
   securitySchemes:
     apiId:
       type: apiKey
