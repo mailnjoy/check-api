@@ -73,8 +73,39 @@ axios.post(
 })
 ```
 L'exemple complet est disponible [ici](https://github.com/mailnjoy/check-api/tree/master/examples/nodejs/basic/)
- #### Java
+#### php
+Définissez vos credentials et l'url de l'API de validation unitaire
+```php
+define("MAILNJOY_ID","myId");
+define("MAILNJOY_SECRET","mySecret");
+define("MAILNJOY_SERVER","https://api.mailnjoy.com/");
+```
+On peut ensuite effectuer l'appel (ici en utilisant le client http [CURL](https://www.php.net/manual/fr/book.curl.php))
+```php
+$curl = curl_init();
 
+curl_setopt($curl, CURLOPT_POST, 1);
+curl_setopt($curl, CURLOPT_POSTFIELDS, "example.address@somedomain.com");
+curl_setopt($curl, CURLOPT_URL, MAILNJOY_SERVER."v1/unitary/?type=simple"); // on fait ici une validation simple
+curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+
+// on précise dans les headers les credentials et le type de la payload
+curl_setopt($curl, CURLOPT_HTTPHEADER, array(
+  "mailnjoy-id: ".MAILNJOY_ID,
+  "mailnjoy-secret: ".MAILNJOY_SECRET,
+  "Content-Type: text/plain"
+));
+
+$result = curl_exec($curl);
+if(!$result) {
+  echo curl_error($curl);
+} else {
+  print_r(json_decode($result,true));
+}
+
+curl_close($curl);
+```
+L'exemple complet est disponible [ici](https://github.com/mailnjoy/check-api/tree/master/examples/php/basic/)
 
 ### Validation en masse
 
