@@ -2,7 +2,7 @@
 
 	// Define your credentials
 	define("MAILNJOY_ID","");
-	define("MAILNJOY_SECRET","a");
+	define("MAILNJOY_SECRET","");
 
 	define("MAILNJOY_SERVER","https://api.mailnjoy.com/");
 	define("MAILNJOY_VALIDATION_TYPE_SIMPLE","simple");
