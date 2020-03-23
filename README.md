@@ -1,4 +1,5 @@
 
+
 <p align="center">
   <img src="https://raw.githubusercontent.com/mailnjoy/api/master/public/images/mailnjoy_logo.png" alt="Logo" width="280" height="200">
 
@@ -117,7 +118,7 @@ La description technique de l'API est disponible sur le [SwaggerHub](https://app
 
 Nous proposons un certain nombre de service afin de faciliter l'intégration de notre API à vos services: SDK, serveur de développement, ... 
 
-Afin d'obtenir plus de détails sur ces outils, consulter des exemples d'intégrations ou explorer plus avant les possibilités de l'API, nous vous invitons à consulter la [documentation complète](https://github.com/mailnjoy/check-api/wiki) et à vous rendre sur le [site dédié aux developpeurs de Mailnjoy](https://developer.mailnjoy.com).
+Afin d'obtenir plus de détails sur ces outils, consulter des exemples d'intégrations ou explorer plus avant les possibilités de l'API, nous vous invitons à consulter la [documentation complète](docs/README.md) et à vous rendre sur le [site dédié aux developpeurs de Mailnjoy](https://developer.mailnjoy.com).
 
 ## Roadmap
 La roadmap de cette API est disponible sur [Trello](https://trello.com/b/LUHqg3Bm).
