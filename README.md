@@ -1,5 +1,3 @@
-
-
 <p align="center">
   <img src="https://raw.githubusercontent.com/mailnjoy/api/master/public/images/mailnjoy_logo.png" alt="Logo" width="280" height="200">
 
@@ -43,7 +41,22 @@ Une fois authentifié, il faut se rendre dans l'onglet [`Comptes API`](https://d
 
 ![Onglet Comptes API](https://raw.githubusercontent.com/mailnjoy/api/master/public/images/comptes_api.png)
 
-TODO: suite de la procédure, une fois l'onglet disponible
+Sur cette page, vous pouvez créer de nouvelles clés, en précisant:
+ * Le nom de la clé
+ * Si la clé peut faire des modifications ou non sur vos données (ce paramétre sera utile pour les futures fonctionnalités)
+ * Si la clé peut dépenser des crédits (autoriser les achats), ce paramètre doit être activé pour pouvoir valider des adresses emails, car cette action consomme des crédits.
+
+![Création de clé](https://raw.githubusercontent.com/mailnjoy/api/master/public/images/creation_cle_api.png)
+
+Vous pouvez également consulter les clés déjà existantes et récupérer les couples id/secret dans la section suivante
+
+![Consultation des clés existantes](https://raw.githubusercontent.com/mailnjoy/api/master/public/images/liste_cles_api.png)
+
+Enfin, en cliquant sur le bouton à droite de la clé, vous accéder aux détails de la clé, tels que l'id, le secret ou la date de création de la clé.
+
+![Détail d'une clé](https://raw.githubusercontent.com/mailnjoy/api/master/public/images/detail_cle_api.png)
+
+Vous avez également la possibilité de **supprimer la clé**. Attention, **cette action est définitive**, vous ne pourrez plus récupérer cette clé par la suite.
 
 ### Validation unitaire
 Tous les exemples sont disponibles dans le dossier [`examples`](https://github.com/mailnjoy/check-api/tree/master/examples)
