@@ -26,8 +26,11 @@
 
 
 ## À propos de Mailnjoy
-### TODO: Introduction commerciale / résumé 
-### TODO: Contact / devenir bêta-testeur
+### Introduction
+Mailnjoy est une société spécialisée dans l'emailing. Elle propose différents outils à valeur ajoutée dans ce domaine.
+Check est l'un de ces produits, permettant de confirmer l'existence et l'intérêt commercial d'une adresse email. 
+### Contact (devenir bêta-testeur)
+Si vous êtes intéressés par ce service et souhaitez l'utiliser, rendez-vous sur notre site web: [check.mailnjoy.com](https://check.mailnjoy.com/contact)
 
 ## QuickStart
 
