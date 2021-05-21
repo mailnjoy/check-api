@@ -46,7 +46,7 @@ Une fois authentifié, il faut se rendre dans l'onglet [`Comptes API`](https://d
 
 Sur cette page, vous pouvez créer de nouvelles clés, en précisant:
  * Le nom de la clé
- * Si la clé peut faire des modifications ou non sur vos données (ce paramétre sera utile pour les futures fonctionnalités)
+ * Si la clé peut faire des modifications ou non sur vos données (ce paramètre sera utile pour les futures fonctionnalités)
  * Si la clé peut dépenser des crédits (autoriser les achats), ce paramètre doit être activé pour pouvoir valider des adresses emails, car cette action consomme des crédits.
 
 ![Création de clé](https://raw.githubusercontent.com/mailnjoy/api/master/public/images/creation_cle_api.png)
@@ -55,7 +55,7 @@ Vous pouvez également consulter les clés déjà existantes et récupérer les 
 
 ![Consultation des clés existantes](https://raw.githubusercontent.com/mailnjoy/api/master/public/images/liste_cles_api.png)
 
-Enfin, en cliquant sur le bouton à droite de la clé, vous accéder aux détails de la clé, tels que l'id, le secret ou la date de création de la clé.
+Enfin, en cliquant sur le bouton à droite de la clé, vous accédez aux détails de la clé, tels que l'id, le secret ou la date de création de la clé.
 
 ![Détail d'une clé](https://raw.githubusercontent.com/mailnjoy/api/master/public/images/detail_cle_api.png)
 
@@ -134,12 +134,12 @@ La description technique de l'API est disponible sur le [SwaggerHub](https://app
 
 Nous proposons un certain nombre de service afin de faciliter l'intégration de notre API à vos services: SDK, serveur de développement, ... 
 
-Afin d'obtenir plus de détails sur ces outils, consulter des exemples d'intégrations ou explorer plus avant les possibilités de l'API, nous vous invitons à consulter la [documentation complète](docs/README.md) et à vous rendre sur le [site dédié aux developpeurs de Mailnjoy](https://developer.mailnjoy.com).
+Afin d'obtenir plus de détails sur ces outils, consulter des exemples d'intégrations ou explorer plus avant les possibilités de l'API, nous vous invitons à lire la [documentation complète](docs/README.md) et à vous rendre sur le [site dédié aux developpeurs de Mailnjoy](https://developer.mailnjoy.com).
 
 ## Roadmap
 La roadmap de cette API est disponible sur [Trello](https://trello.com/b/LUHqg3Bm).
 
-Tout comme nos services, l'API est encore jeune. Nous avons déjà en tête un certain nombre de fonctionnalités qui pourront améliorer votre expérience de développement, mais nous sommes également à votre écoute.
+Tout comme nos services, l'API est encore jeune. Nous avons déjà en tête un certain nombre de fonctionnalités qui pourront améliorer votre expérience de développement, et nous sommes également à votre écoute.
 
 Vous avez un besoin, une idée pour améliorer notre API? Vous pouvez envoyer vos suggestions sur l'adresse mail dediée: [`contact-developer@mailnjoy.com`](mailto:contact-developer@mailnjoy.com)
 
