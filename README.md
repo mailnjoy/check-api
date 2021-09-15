@@ -16,6 +16,7 @@
   * [Prérequis](#prérequis)
   * [Validation unitaire](#validation-unitaire)
   * [Validation de masse](#validation-en-masse)
+  * [Consulter ses crédits](#bonus---consulter-ses-crédits)
 * [Aller plus loin](#aller-plus-loin)
 * [Roadmap](#roadmap)
 * [Contact](#contact)
