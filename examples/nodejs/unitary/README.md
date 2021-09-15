@@ -9,7 +9,7 @@ Node.js doit être installé: [Télecharger Node](https://nodejs.org/en/download
 ## Lancement
 Renseigner les variables `mailnjoyId` et  `mailnjoySecret` dans le fichier `basic.js`.
 
-A la racine du dossier (`check-api/examples/nodejs/basic`), lancer l'installation le projet
+A la racine du dossier (`check-api/examples/nodejs/unitary`), lancer l'installation le projet
 ```bash
 npm install
 ```

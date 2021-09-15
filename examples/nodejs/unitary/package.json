@@ -5,7 +5,7 @@
     "description": "A simple demonstration of Mailnjoy unitary validation API",
     "license": "MIT",
     "scripts": {
-        "start": "node ./basic.js"
+        "start": "node ./main.js"
     },
     "dependencies": {
         "axios": "^0.21.1"

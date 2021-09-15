@@ -6,17 +6,14 @@
   <p align="center">
     Check by Mailnjoy est une solution de validation d'adresses email. <br/>L'API partenaire permet d'accèder aux services de Check, de façon simple, automatisée et sécurisée.
     <br />
-    <a href="https://github.com/mailnjoy/check-api/wiki"><strong>Parcourir la documentation</strong></a>
   </p>
 </p>
 
 ## Table des matières
 
 * [À propos de Mailnjoy](#à-propos-de-mailnjoy)
-  * [Qu'est-ce que Mailnjoy]()
-  * [Devenir un bêta-testeur]()
 * [QuickStart](#quickstart)
-  * [Prérequis](#prerequis)
+  * [Prérequis](#prérequis)
   * [Validation unitaire](#validation-unitaire)
   * [Validation de masse](#validation-en-masse)
 * [Aller plus loin](#aller-plus-loin)
@@ -89,7 +86,7 @@ axios.post(
   console.log(error)
 })
 ```
-L'exemple complet est disponible [ici](https://github.com/mailnjoy/check-api/tree/master/examples/nodejs/basic/)
+L'exemple complet est disponible [ici](https://github.com/mailnjoy/check-api/tree/master/examples/nodejs/unitary/)
 #### php
 Définissez vos credentials et l'url de l'API de validation unitaire
 ```php
@@ -122,12 +119,77 @@ if(!$result) {
 
 curl_close($curl);
 ```
-L'exemple complet est disponible [ici](https://github.com/mailnjoy/check-api/tree/master/examples/php/basic/)
+L'exemple complet est disponible [ici](https://github.com/mailnjoy/check-api/tree/master/examples/php/unitary/)
 
 ### Validation en masse
 
-Indisponible pour le moment ([consulter la roadmap de l'API](https://trello.com/b/LUHqg3Bm))
+La validation de liste permet de valider de nombreuses adresses emails, avec une qualité équivalente aux validations unitaires. Ces validations coûtent moins cher (1 crédit par adresses) mais se font moins rapidement.
 
+Il est aujourd'hui possible de faire ces validations en masse via SFTP. plus d'informations sur le site [Developer](https://developer.mailnjoy.com/page-home), dans la section "Documentation SFTP".  
+
+Ce type de validation n'est pas faisable via API pour le moment ([consulter la roadmap de l'API](https://trello.com/b/LUHqg3Bm)).
+
+
+### Bonus - Consulter ses crédits
+
+En reprenant la clé développeur précédente, il est possible d'interroger l'API pour obtenir le solde de crédit du compte parent. Cela peut être utile pour remonter l'information dans une interface ou mettre en place une surveillance du solde.
+
+Tous les exemples sont disponibles dans le dossier [`examples`](https://github.com/mailnjoy/check-api/tree/master/examples)
+
+####  Node.js
+En reprennant les credentials précédents, on ajoute juste un autre endpoint pour l'url.
+```javascript
+const mailnjoyId = "myId"
+const mailnjoySecret = "mySecret"
+const mailnjoyCreditPath = "https://api.mailnjoy.com/v1/credit"
+```
+On peut ensuite effectuer l'appel de la même façon (toujours avec le client http [axios](https://github.com/axios/axios))
+```javascript
+axios.get(
+  mailnjoyCreditPath,
+  {
+    "headers": { // on précise dans les headers les credentials
+      "mailnjoy-id": mailnjoyId,
+      "mailnjoy-secret": mailnjoySecret
+    }
+  }
+).then(result => {
+  console.log(result.data) // le contenu est uniquement un entier, votre solde crédit
+}).catch(error => {
+  console.log(error)
+})
+```
+L'exemple complet est disponible [ici](https://github.com/mailnjoy/check-api/tree/master/examples/nodejs/unitary/)
+#### php
+Définissez vos credentials et l'url de l'API de validation unitaire
+```php
+define("MAILNJOY_ID","myId");
+define("MAILNJOY_SECRET","mySecret");
+define("MAILNJOY_SERVER","https://api.mailnjoy.com/");
+```
+On peut ensuite effectuer l'appel (ici en utilisant le client http [CURL](https://www.php.net/manual/fr/book.curl.php))
+```php
+$curl = curl_init();
+
+curl_setopt($curl, CURLOPT_URL, MAILNJOY_SERVER."v1/credit/");
+curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+
+// on précise dans les headers les credentials
+curl_setopt($curl, CURLOPT_HTTPHEADER, array(
+  "mailnjoy-id: ".MAILNJOY_ID,
+  "mailnjoy-secret: ".MAILNJOY_SECRET,
+));
+
+$result = curl_exec($curl);
+if(!$result) {
+  echo curl_error($curl);
+} else {
+  echo $result." credits left";
+}
+
+curl_close($curl);
+```
+L'exemple complet est disponible [ici](https://github.com/mailnjoy/check-api/tree/master/examples/php/unitary/)
 
 ## Aller plus loin
 La description technique de l'API est disponible sur le [SwaggerHub](https://app.swaggerhub.com/apis-docs/mailnjoy/check-by_mailn_joy_api/1.0.0).

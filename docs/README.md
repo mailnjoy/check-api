@@ -7,7 +7,9 @@
 
 ### Exemples
 En Javascript (Node.js):
-* [Exemple basique](../examples/nodejs/basic)
+* [Exemple validation unitaire](../examples/nodejs/unitary)
+* [Exemple récupération solde crédit](../examples/nodejs/credit)
 
 En php:
-* [Exemple basique](../examples/php/basic)
+* [Exemple validation unitaire](../examples/php/unitary)
+* [Exemple récupération solde crédit](../examples/php/credit)

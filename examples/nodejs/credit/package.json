@@ -1,0 +1,13 @@
+{
+    "name": "credit-basic",
+    "version": "1.0.0",
+    "author": "Nicolas Barlogis <nicolas.barlogis@mailnjoy.com>",
+    "description": "A simple demonstration of Mailnjoy credit API",
+    "license": "MIT",
+    "scripts": {
+        "start": "node ./main.js"
+    },
+    "dependencies": {
+        "axios": "^0.21.1"
+    }
+}

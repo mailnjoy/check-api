@@ -25,7 +25,7 @@ prism mock unitary-specification.yaml --errors
 Vous pouvez reprendre les scripts d'exemple en remplaçant l'adresse `htttp://api.mailnjoy.com` par ce qui est précisé dans la console (ici `http://127.0.0.1:4010`) 
 Il vous faudra également préciser des valeurs dans les champs d'identification (`mailnjoy-id` et `mailnjoy-secret`). Prism ne va évidemment pas vérifier la validité du couple id/secret, mais si ces headers sont absents, il renverra une erreur 401, comme le ferait le vrai serveur.
 
-Par défaut, Prism ne vous renverra que l'exemple de validation unitaire `simple`, peut importe le type que vous passerez en argument.
+Pour les validations unitaire, par défaut, Prism ne vous renverra que l'exemple de validation `simple`, peut importe le type que vous passerez en argument.
 Pour recevoir une format `deep`, vous devrez préciser un header supplémentaire:
 ```bash
 Prefer: example=deep
