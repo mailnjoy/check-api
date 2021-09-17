@@ -10,7 +10,7 @@ info:
   license:
     name: Consulter la licence
     url: https://mit-license.org
-  version: 1.0.0
+  version: 1.1.0
 externalDocs:
   description: Accèder au GitHub de l'API
   url: https://github.com/mailnjoy/check-api
@@ -32,8 +32,8 @@ paths:
       parameters:
       - name: type
         in: query
-        description: Le type de validation, simple ou appronfondie. Le type du retour
-          dépendra de l'option selectionnée
+        description: "Le type de validation, simple ou appronfondie. Le type du retour\
+          \ dépendra de l'option selectionnée"
         required: true
         style: form
         explode: true
@@ -59,8 +59,8 @@ paths:
                   value:
                     id: 564
                     email: foo@bar.com
-                    created: 2020-02-29T18:02:42.847Z
-                    validated: 2020-02-29T18:02:46.906Z
+                    created: 2020-02-29T18:02:42.847+0000
+                    validated: 2020-02-29T18:02:46.906+0000
                     validationType: simple
                     userId: 12
                     status: VALID
@@ -92,8 +92,8 @@ paths:
                   value:
                     id: 56
                     email: foo@bar.com
-                    created: 2020-02-29T18:02:48.847Z
-                    validated: 2020-02-29T18:02:57.906Z
+                    created: 2020-02-29T18:02:48.847+0000
+                    validated: 2020-02-29T18:02:57.906+0000
                     validationType: deep
                     userId: 12
                     status: VALID
@@ -154,6 +154,22 @@ paths:
           description: Pas assez de crédit pour lancer la validation
         "500":
           description: Erreur serveur et/ou indisponibilité temporaire du service
+  /v1/credit:
+    get:
+      description: Retourne le solde de crédits du compte
+      operationId: getCredits
+      responses:
+        "200":
+          description: Le solde du compte
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/Solde'
+              examples:
+                Solde:
+                  value: 217403
+        "500":
+          description: Erreur serveur et/ou indisponibilité temporaire du service
 components:
   schemas:
     Email:
@@ -184,19 +200,20 @@ components:
           example: foo@bar.com
         created:
           type: string
-          description: Datetime de création de la validation, au format ISO 8601
+          description: "Datetime de création de la validation, au format ISO 8601"
           readOnly: true
-          example: 2020-02-29T18:02:42.847Z
+          example: 2020-02-29T18:02:42.847+0000
         validated:
           type: string
-          description: Datetime de fin de la validation, au format ISO 8601
+          description: "Datetime de fin de la validation, au format ISO 8601"
           readOnly: true
-          example: 2020-02-29T18:02:46.906Z
+          example: 2020-02-29T18:02:46.906+0000
         validationType:
           $ref: '#/components/schemas/ValidationType'
         userId:
           type: integer
-          description: L'utilisateur qui a lancé la validation, ici le compte de développement
+          description: "L'utilisateur qui a lancé la validation, ici le compte de\
+            \ développement"
           readOnly: true
           example: 12
         status:
@@ -327,8 +344,8 @@ components:
       properties:
         type:
           type: string
-          description: Indique si l'attribut est une caractéristique recherchée (POSITIVE),
-            à éviter (NEGATIVE) ou apportant juste une information (NEUTRAL)
+          description: "Indique si l'attribut est une caractéristique recherchée (POSITIVE),\
+            \ à éviter (NEGATIVE) ou apportant juste une information (NEUTRAL)"
           readOnly: true
           enum:
           - positive
@@ -339,7 +356,10 @@ components:
           description: Indique sur l'adresse email posséde l'attribut (true) ou non
             (false)
           readOnly: true
-      description: todo
+      description: Une caratéristique d'un email
+    Solde:
+      type: integer
+      description: nombre de crédits que possède le compte
   securitySchemes:
     apiId:
       type: apiKey
