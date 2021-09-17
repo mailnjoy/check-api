@@ -8,7 +8,7 @@ En attendant, vous pouvez toujours utiliser des alternative pour simuler le comp
 ## Simuler l'API Check unitaire avec Prism
 ### Qu'est ce que Prism
 [Prism](https://stoplight.io/open-source/prism/) est un projet sous licence Apache permettant de simuler un endpoint API, pour pouvoir tester/développer en utilisant cette API sans réaliser de vrais appels.
-Vous pouvez utiliser Prism en vous basant sur le [fichier de spécification OpenAPI](https://github.com/mailnjoy/check-api/blob/master/openapi-specs/unitary-specification.yaml) disponible dans le dépôt. La documentation de Prism est disponible sur [ici](https://stoplight.io/p/docs/gh/stoplightio/prism/README.md).
+Vous pouvez utiliser Prism en vous basant sur le [fichier de spécification OpenAPI](https://github.com/mailnjoy/check-api/blob/master/openapi-specs/api-specification.yaml) disponible dans le dépôt. La documentation de Prism est disponible sur [ici](https://stoplight.io/p/docs/gh/stoplightio/prism/README.md).
 
 Nous vous fournirons simplement ici un exemple rapide vous permettant de répondre à vos besoins basiques de développement.
 
@@ -17,7 +17,7 @@ Il faut tout d'abord installer Prism: [voir les options d'installation](https://
 
 À partir de là, vous pouvez lancer le serveur (l'option `errors` permet d'avoir des messages d'erreur plus explicites):
 ```bash
-prism mock unitary-specification.yaml --errors
+prism mock api-specification.yaml --errors
 [xx:xx:xx] » [CLI] ...  awaiting  Starting Prism…
 [xx:xx:xx] » [CLI] i  info      POST       http://127.0.0.1:4010/v1/unitary?type=simple
 [xx:xx:xx] » [CLI] ►  start     Prism is listening on http://127.0.0.1:4010
