@@ -164,10 +164,8 @@ paths:
           content:
             text/plain:
               schema:
-                $ref: '#/components/schemas/Solde'
-              examples:
-                Solde:
-                  value: 217403
+                type: string
+                example: "217403"
         "500":
           description: Erreur serveur et/ou indisponibilité temporaire du service
 components:
@@ -357,9 +355,6 @@ components:
             (false)
           readOnly: true
       description: Une caratéristique d'un email
-    Solde:
-      type: integer
-      description: nombre de crédits que possède le compte
   securitySchemes:
     apiId:
       type: apiKey
