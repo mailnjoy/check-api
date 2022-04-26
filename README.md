@@ -193,7 +193,7 @@ curl_close($curl);
 L'exemple complet est disponible [ici](https://github.com/mailnjoy/check-api/tree/master/examples/php/unitary/)
 
 ## Aller plus loin
-La description technique de l'API est disponible sur le [SwaggerHub](https://app.swaggerhub.com/apis-docs/mailnjoy/check-by_mailn_joy_api/1.0.0).
+La description technique de l'API est disponible sur le [SwaggerHub](https://app.swaggerhub.com/apis-docs/mailnjoy/check-by_mailn_joy_api/).
 
 Nous proposons un certain nombre de service afin de faciliter l'intégration de notre API à vos services: SDK, serveur de développement, ... 
 
