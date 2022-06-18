@@ -155,12 +155,15 @@ paths:
                       result: 8.4
                       total: 10.0
         "400":
-          description: Le paramétre n'est pas un mail valide ou le type spécifié est
-            incorrect
+          description: Les credentials sont absents ou le paramétre n'est pas un mail
+            valide ou le type spécifié est incorrect
         "401":
-          description: Le couple id/secret est absent ou incorrect
+          description: Le couple id/secret est incorrect
         "403":
           description: Pas assez de crédit pour lancer la validation
+        "429":
+          description: "Seuil de validations en parallèle dépassé (défaut à 15, contactez\
+            \ contact@mailnjoy.com pour modifier cette limite)"
         "500":
           description: Erreur serveur
         "503":
@@ -288,12 +291,15 @@ paths:
                       result: 8.4
                       total: 10.0
         "400":
-          description: Le paramétre n'est pas un mail valide ou le type spécifié est
-            incorrect
+          description: Les credentials sont absents ou le paramétre n'est pas un mail
+            valide ou le type spécifié est incorrect
         "401":
-          description: Le couple id/secret est absent ou incorrect
+          description: Le couple id/secret est incorrect
         "403":
           description: Pas assez de crédit pour lancer la validation
+        "429":
+          description: "Seuil de validations en parallèle dépassé (défaut à 15, contactez\
+            \ contact@mailnjoy.com pour modifier cette limite)"
         "500":
           description: Erreur serveur et/ou indisponibilité temporaire du service
   /v1/credit:
@@ -308,6 +314,10 @@ paths:
               schema:
                 type: string
                 example: "217403"
+        "400":
+          description: Les credentials sont absents
+        "401":
+          description: Le couple id/secret est incorrect
         "500":
           description: Erreur serveur et/ou indisponibilité temporaire du service
 components:
