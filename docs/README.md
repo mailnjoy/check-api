@@ -1,6 +1,20 @@
 
 
-<h3 align="center">API partenaire de <span style="color:#95C11F;">Check by Mailnjoy<span></h3>
+<h3 align="center"><span style="color:#95C11F;">Check by Mailnjoy<span> API</h3>
+
+### Documentation 
+* [Test the API](TEST.md)
+
+### Examples
+In Javascript (Node.js):
+* [Example of unit validation](../examples/nodejs/unitary)
+* [Example of credit balance retrieval](../examples/nodejs/credit)
+
+In php:
+* [Example of unit validation](../examples/php/unitary)
+* [Example of credit balance retrieval](../examples/php/credit)
+
+---
 
 ### Documentation 
 * [Tester l'API](TEST.md)

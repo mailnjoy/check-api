@@ -1,5 +1,38 @@
 
-<h3 align="center">API partenaire de <span style="color:#95C11F;">Check by Mailnjoy<span></h3>
+<h3 align="center"><span style="color:#95C11F;">Check by Mailnjoy<span> API</h3>
+
+## Testing the API
+The Check API does not yet have a sandbox for development/testing, although this is planned (see the [roadmap](https://trello.com/b/LUHqg3Bm)). 
+In the meantime, you can always use alternatives to simulate API behavior.
+
+## Simulating the Unit Check API with Prism
+### What is Prism
+[Prism](https://stoplight.io/open-source/prism/) is an Apache-licensed project for simulating an API endpoint, so you can test/develop using this API without making real calls.
+
+You can use Prism based on the [OpenAPI specification file](https://github.com/mailnjoy/check-api/blob/master/openapi-specs/api-specification.yaml) available in the repository. Prism documentation is available at [here](https://stoplight.io/p/docs/gh/stoplightio/prism/README.md).
+
+We'll simply provide you with a quick example to meet your basic development needs.
+
+### Using Prism 
+First you need to install Prism: [see installation options](https://github.com/stoplightio/prism/blob/master/docs/getting-started/01-installation.md)
+From here, you can launch the server (the `errors` option provides more explicit error messages):
+```bash
+prism mock api-specification.yaml --errors
+[xx:xx:xx] "[CLI] ... awaiting Starting Prism...
+[xx:xx:xx] " [CLI] i info POST http://127.0.0.1:4010/v1/unitary?type=simple
+[xx:xx:xx] " [CLI] ► start Prism is listening on http://127.0.0.1:4010
+``` 
+
+You can repeat the example scripts, replacing the address `htttp://api.mailnjoy.com` by what is specified in the console (here `http://127.0.0.1:4010`). 
+You'll also need to specify values in the identification fields (`mailnjoy-id` and `mailnjoy-secret`). Prism will obviously not check the validity of the id/secret pair, but if these headers are missing, it will return a 401 error, just as the real server would.
+
+For unit validations, by default Prism will only return the `simple` validation example, regardless of the type you pass as an argument.
+To receive a `deep` format, you'll need to specify an additional header:
+```bash
+Prefer: example=deep
+```
+
+---
 
 ## Tester l'API
 L'API Check ne dispose pas encore de sandbox pour mener à bien des développements / des tests, bien que cela soit prévu (voir la [roadmap](https://trello.com/b/LUHqg3Bm)). 

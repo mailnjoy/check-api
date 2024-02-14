@@ -1,75 +1,74 @@
+[Accèder à la version française](README_FR.md)
 <p align="center">
   <img src="https://raw.githubusercontent.com/mailnjoy/api/master/public/images/mailnjoy_logo.png" alt="Logo" width="280" height="200">
 
   <h3 align="center">API partenaire de <span style="color:#95C11F;">Check by Mailnjoy<span></h3>
 
   <p align="center">
-    Check by Mailnjoy est une solution de validation d'adresses email. <br/>L'API partenaire permet d'accèder aux services de Check, de façon simple, automatisée et sécurisée.
-    <br />
+    is an email address validation solution. <br/>The API provides simple, automated and secure access to Check's services.
   </p>
 </p>
 
 ## Table des matières
 
-* [À propos de Mailnjoy](#à-propos-de-mailnjoy)
+* [About Mailnjoy](#about-mailnjoy)
 * [QuickStart](#quickstart)
-  * [Prérequis](#prérequis)
-  * [Validation unitaire](#validation-unitaire)
-  * [Validation de masse](#validation-en-masse)
-  * [Consulter ses crédits](#bonus---consulter-ses-crédits)
-* [Aller plus loin](#aller-plus-loin)
+  * [Prerequisites](#prerequisites)
+  * [Unit validation](#unit-validation)
+  * [Mass validation](#mass-validation)
+  * [Consult credits](#bonus---check-credit-balance)
+* [Going futher](#going-further)
 * [Roadmap](#roadmap)
 * [Contact](#contact)
-* [Licence](#licence)
+* [License](#licence)
 
-
-## À propos de Mailnjoy
+## About Mailnjoy
 ### Introduction
-Mailnjoy est une société spécialisée dans l'emailing. Elle propose différents outils à valeur ajoutée dans ce domaine.
-Check est l'un de ces produits, permettant de confirmer l'existence et l'intérêt commercial d'une adresse email. 
-### Contact (devenir bêta-testeur)
-Si vous êtes intéressés par ce service et souhaitez l'utiliser, rendez-vous sur notre site web: [check.mailnjoy.com](https://check.mailnjoy.com/contact)
+Mailnjoy is a company specialized in email marketing. It offers various value-added tools in this field.
+Check is one of these products, enabling you to confirm the existence and commercial interest of an email address. 
+### Contact (become a beta tester)
+If you are interested in this service and would like to use it, please visit our website: [check.mailnjoy.com](https://check.mailnjoy.com/contact)
 
 ## QuickStart
+Follow the steps adapted to your use case (validation of a single e-mail / many e-mails). In all cases, you'll need to satisfy the prerequisites first.
 
-Suivez les étapes adaptées à votre cas d'usage (validation d'un seul mail / de nombreux mails). Dans tous les cas, vous devrez commencer par satisfaire les prérequis.
+### Prerequisites
+Each call to the API must be authenticated by a login/secret pair. To obtain access to the API, you first need to create a developer key, via the [site dedicated to developers: `https://developer.mailnjoy.com`](https://developer.mailnjoy.com)
 
-### Prérequis
+Once authenticated, go to the [`API Accounts`](https://developer.mailnjoy.com/page-api-user) tab.
 
-Chaque appel à l'API se fait en étant authentifié par un couple identifiant/secret. Pour obtenir un accès à l'API, vous devez créer une clé de développeur, via le [site dédié aux developpeurs: `https://developer.mailnjoy.com`](https://developer.mailnjoy.com)
+![API Accounts tab](https://raw.githubusercontent.com/mailnjoy/api/master/public/images/comptes_api.png)
 
-Une fois authentifié, il faut se rendre dans l'onglet [`Comptes API`](https://developer.mailnjoy.com/page-api-user)
+On this page, you can create new keys, by specifying:
+ * The name of the key
+ * Whether or not the key can modify your data (this parameter will be useful for future functions)
+ * Whether the key can spend credits (authorize purchases). This parameter must be enabled to validate e-mail addresses, as this action consumes credits.
 
-![Onglet Comptes API](https://raw.githubusercontent.com/mailnjoy/api/master/public/images/comptes_api.png)
+![Key creation](https://raw.githubusercontent.com/mailnjoy/api/master/public/images/creation_cle_api.png)
 
-Sur cette page, vous pouvez créer de nouvelles clés, en précisant:
- * Le nom de la clé
- * Si la clé peut faire des modifications ou non sur vos données (ce paramètre sera utile pour les futures fonctionnalités)
- * Si la clé peut dépenser des crédits (autoriser les achats), ce paramètre doit être activé pour pouvoir valider des adresses emails, car cette action consomme des crédits.
+You can also consult existing keys and retrieve id/secret pairs in the following section
 
-![Création de clé](https://raw.githubusercontent.com/mailnjoy/api/master/public/images/creation_cle_api.png)
+![View existing keys](https://raw.githubusercontent.com/mailnjoy/api/master/public/images/liste_cles_api.png)
 
-Vous pouvez également consulter les clés déjà existantes et récupérer les couples id/secret dans la section suivante
+Finally, by clicking on the button to the right of the key, you can access the key's details, such as id, secret or creation date.
 
-![Consultation des clés existantes](https://raw.githubusercontent.com/mailnjoy/api/master/public/images/liste_cles_api.png)
+![Key details](https://raw.githubusercontent.com/mailnjoy/api/master/public/images/detail_cle_api.png)
 
-Enfin, en cliquant sur le bouton à droite de la clé, vous accédez aux détails de la clé, tels que l'id, le secret ou la date de création de la clé.
+You also have the option of **deleting the key**. Please note that **this action is definitive**; you will not be able to retrieve this key at a later date.
 
-![Détail d'une clé](https://raw.githubusercontent.com/mailnjoy/api/master/public/images/detail_cle_api.png)
+### Unit validation
+All examples are available in the folder [`examples`](https://github.com/mailnjoy/check-api/tree/master/examples)
 
-Vous avez également la possibilité de **supprimer la clé**. Attention, **cette action est définitive**, vous ne pourrez plus récupérer cette clé par la suite.
+#### Node.js
 
-### Validation unitaire
-Tous les exemples sont disponibles dans le dossier [`examples`](https://github.com/mailnjoy/check-api/tree/master/examples)
-
-####  Node.js
-Définissez vos credentials et l'url de l'API de validation unitaire
+Define your credentials and the url of the unit validation API
 ```javascript
 const mailnjoyId = "myId"
 const mailnjoySecret = "mySecret"
 const mailnjoyUnitaryPath = "https://api.mailnjoy.com/v1/unitary"
 ```
-On peut ensuite effectuer l'appel (ici en utilisant le client http [axios](https://github.com/axios/axios))
+
+You can then make the call (here using the http client [axios](https://github.com/axios/axios))
 ```javascript
 axios.post(
   mailnjoyUnitaryPath + "?type=simple", // on fait ici une validation simple
@@ -87,15 +86,18 @@ axios.post(
   console.log(error)
 })
 ```
-L'exemple complet est disponible [ici](https://github.com/mailnjoy/check-api/tree/master/examples/nodejs/unitary/)
+
+Full example available [here](https://github.com/mailnjoy/check-api/tree/master/examples/nodejs/unitary/)
+
 #### php
-Définissez vos credentials et l'url de l'API de validation unitaire
+Define your credentials and the url of the unit validation API
 ```php
 define("MAILNJOY_ID","myId");
 define("MAILNJOY_SECRET","mySecret");
 define("MAILNJOY_SERVER","https://api.mailnjoy.com/");
 ```
-On peut ensuite effectuer l'appel (ici en utilisant le client http [CURL](https://www.php.net/manual/fr/book.curl.php))
+
+You can then make the call (here using the http client [CURL](https://www.php.net/manual/en/book.curl.php))
 ```php
 $curl = curl_init();
 
@@ -120,62 +122,61 @@ if(!$result) {
 
 curl_close($curl);
 ```
-L'exemple complet est disponible [ici](https://github.com/mailnjoy/check-api/tree/master/examples/php/unitary/)
+Full example available [here](https://github.com/mailnjoy/check-api/tree/master/examples/php/unitary/)
 
-### Validation en masse
+### Mass validation
 
-La validation de liste permet de valider de nombreuses adresses emails, avec une qualité équivalente aux validations unitaires. Ces validations coûtent moins cher (1 crédit par adresses) mais se font moins rapidement.
+List validation enables you to validate a large number of e-mail addresses, with a quality equivalent to that of unit validation. These validations cost less (1 credit per address) but are less rapid.
 
-Il est aujourd'hui possible de faire ces validations en masse via SFTP. plus d'informations sur le site [Developer](https://developer.mailnjoy.com/page-home), dans la section "Documentation SFTP".  
+It is now possible to perform these validations en masse via SFTP. More information is available on the [Developer] site (https://developer.mailnjoy.com/page-home), in the "SFTP Documentation" section.  
 
-Ce type de validation n'est pas faisable via API pour le moment ([consulter la roadmap de l'API](https://trello.com/b/LUHqg3Bm)).
+This type of validation is not currently possible via API ([consult API roadmap](https://trello.com/b/LUHqg3Bm)).
 
+### Bonus - Check credit balance
 
-### Bonus - Consulter ses crédits
+Using the previous developer key, you can query the API to obtain the credit balance of the parent account. This can be useful for uploading information to an interface or for setting up balance monitoring.
 
-En reprenant la clé développeur précédente, il est possible d'interroger l'API pour obtenir le solde de crédit du compte parent. Cela peut être utile pour remonter l'information dans une interface ou mettre en place une surveillance du solde.
-
-Tous les exemples sont disponibles dans le dossier [`examples`](https://github.com/mailnjoy/check-api/tree/master/examples)
+All examples are available in the folder [`examples`](https://github.com/mailnjoy/check-api/tree/master/examples)
 
 ####  Node.js
-En reprennant les credentials précédents, on ajoute juste un autre endpoint pour l'url.
+Using the previous credentials, we just add another endpoint to the base url
 ```javascript
 const mailnjoyId = "myId"
 const mailnjoySecret = "mySecret"
 const mailnjoyCreditPath = "https://api.mailnjoy.com/v1/credit"
 ```
-On peut ensuite effectuer l'appel de la même façon (toujours avec le client http [axios](https://github.com/axios/axios))
+You can then make the call in the same way (here with the same http client [axios](https://github.com/axios/axios))
 ```javascript
 axios.get(
   mailnjoyCreditPath,
   {
-    "headers": { // on précise dans les headers les credentials
+    "headers": {
       "mailnjoy-id": mailnjoyId,
       "mailnjoy-secret": mailnjoySecret
     }
   }
 ).then(result => {
-  console.log(result.data) // le contenu est uniquement un entier, votre solde crédit
+  console.log(result.data) // the content is only an integer: your credit balance
 }).catch(error => {
   console.log(error)
 })
 ```
-L'exemple complet est disponible [ici](https://github.com/mailnjoy/check-api/tree/master/examples/nodejs/unitary/)
+Full example [here](https://github.com/mailnjoy/check-api/tree/master/examples/nodejs/unitary/)
+
 #### php
-Définissez vos credentials et l'url de l'API de validation unitaire
+Define your credentials and the url of the unit validation API
 ```php
 define("MAILNJOY_ID","myId");
 define("MAILNJOY_SECRET","mySecret");
 define("MAILNJOY_SERVER","https://api.mailnjoy.com/");
 ```
-On peut ensuite effectuer l'appel (ici en utilisant le client http [CURL](https://www.php.net/manual/fr/book.curl.php))
+You can then make the call (here still using [CURL](https://www.php.net/manual/fr/book.curl.php))
 ```php
 $curl = curl_init();
 
 curl_setopt($curl, CURLOPT_URL, MAILNJOY_SERVER."v1/credit/");
 curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
 
-// on précise dans les headers les credentials
 curl_setopt($curl, CURLOPT_HTTPHEADER, array(
   "mailnjoy-id: ".MAILNJOY_ID,
   "mailnjoy-secret: ".MAILNJOY_SECRET,
@@ -190,28 +191,26 @@ if(!$result) {
 
 curl_close($curl);
 ```
-L'exemple complet est disponible [ici](https://github.com/mailnjoy/check-api/tree/master/examples/php/unitary/)
+Full example [here](https://github.com/mailnjoy/check-api/tree/master/examples/php/unitary/)
 
-## Aller plus loin
-La description technique de l'API est disponible sur le [SwaggerHub](https://app.swaggerhub.com/apis-docs/mailnjoy/check-by_mailn_joy_api/).
+## Going further
+The technical description of the API is available on the [SwaggerHub](https://app.swaggerhub.com/apis-docs/mailnjoy/check-by_mailn_joy_api/).
 
-Nous proposons un certain nombre de service afin de faciliter l'intégration de notre API à vos services: SDK, serveur de développement, ... 
+We offer a number of services to facilitate the integration of our API with your services: SDK, development server, ... 
 
-Afin d'obtenir plus de détails sur ces outils, consulter des exemples d'intégrations ou explorer plus avant les possibilités de l'API, nous vous invitons à lire la [documentation complète](docs/README.md) et à vous rendre sur le [site dédié aux developpeurs de Mailnjoy](https://developer.mailnjoy.com).
+To find out more about these tools, see examples of integrations or explore the API's possibilities further, we invite you to read the [full documentation](docs/README.md) and visit the [Mailnjoy dedicated developer site](https://developer.mailnjoy.com).
 
 ## Roadmap
-La roadmap de cette API est disponible sur [Trello](https://trello.com/b/LUHqg3Bm).
+The roadmap for this API is available on [Trello](https://trello.com/b/LUHqg3Bm).
 
-Tout comme nos services, l'API est encore jeune. Nous avons déjà en tête un certain nombre de fonctionnalités qui pourront améliorer votre expérience de développement, et nous sommes également à votre écoute.
+Like our services, the API is still in its infancy. We already have a number of features in mind that will enhance your development experience, and we're also listening to your feedback.
 
-Vous avez un besoin, une idée pour améliorer notre API? Vous pouvez envoyer vos suggestions sur l'adresse mail dediée: [`contact-developer@mailnjoy.com`](mailto:contact-developer@mailnjoy.com)
+Do you have a need or an idea for improving our API? You can send your suggestions to our dedicated e-mail address: [contact-developer@mailnjoy.com](mailto:contact-developer@mailnjoy.com)
 
 ## Contact
+For any technical questions relating to the API, documentation or integration of Mailnjoy services, you can contact us by e-mail at [`contact-developer@mailnjoy.com`](mailto:contact-developer@mailnjoy.com) or via the [contact tab](https://developer.mailnjoy.com/page-contact) on the developer site ([developer.mailnjoy.com](https://developer.mailnjoy.com)).
 
-Pour toute question technique liée à l'API, la documentation ou l'intégration des services Mailnjoy, vous pouvez nous contacter par mail via l'adresse [`contact-developer@mailnjoy.com`](mailto:contact-developer@mailnjoy.com) ou en passant par [l'onglet contact](https://developer.mailnjoy.com/page-contact) du site développeur ([developer.mailnjoy.com](https://developer.mailnjoy.com)).
+If you would like to contact us with a question about Mailnjoy services or would like to become a beta tester, you can reach us via the standard contact address [`contact@mailnjoy.com`](mailto:contact-developer@mailnjoy.com) or via the [`contact`](https://check.mailnjoy.com/page-contact) tab on the Check site, if you have access to it.
 
-Si vous voulez nous contacter pour une question sur les services Mailnjoy ou que vous souhaitez devenir bêta-testeur, vous pouvez nous joindre via l'adresse de contact standard [`contact@mailnjoy.com`](mailto:contact-developer@mailnjoy.com) ou en passant par l'onglet [`contact`](https://check.mailnjoy.com/page-contact) du site de Check, si vous y avez accès.
-
-## Licence
-
-Les documentations de l'API et des SDK sont distribuées sous la [licence MIT](https://mit-license.org). Référez-vous au fichier `LICENSE` pour plus d'informations.
+## License
+API and SDK documentation is distributed under the [MIT license](https://mit-license.org). Please refer to the `LICENSE` file for more information.
